@@ -1,31 +1,6 @@
 $hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
 $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
-// body {
-//   margin: 40px 0;
-//   font-family: "Raleway";
-//   font-size: 14px;
-//   font-weight: 500;
-//   background-color: #BCAAA4;
-//   -webkit-font-smoothing: antialiased;
-// }
-
-// .title {
-//   font-family: "Raleway";
-//   font-size: 24px;
-//   font-weight: 700;
-//   color: #5D4037;
-//   text-align: center;
-// }
-
-// p {
-//   line-height: 1.5em;
-// }
-
-// h1+p, p+p {
-//   margin-top: 10px;
-// }
-
 .container-cards {
   height: 80vh;
   width: 100wh;
@@ -41,7 +16,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   transform-style: preserve-3d;
   cursor: pointer;
   // background-color: #fff;
-  
+
   &:hover {
     .card-info {
       transform: translateY(0);
@@ -49,7 +24,8 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     .card-info p {
       opacity: 1;
     }
-    .card-info, .card-info p {
+    .card-info,
+    .card-info p {
       transition: 0.6s $hoverEasing;
     }
     .card-info:after {
@@ -58,20 +34,13 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
       transform: translateY(0);
     }
     .card-bg {
-      transition: 
-        0.6s $hoverEasing,
-        opacity 5s $hoverEasing;
+      transition: 0.6s $hoverEasing, opacity 5s $hoverEasing;
       opacity: 0.8;
     }
     .card {
-      transition:
-        0.6s $hoverEasing,
-        box-shadow 2s $hoverEasing;
-      box-shadow:
-        rgba(white, 0.2) 0 0 40px 5px,
-        rgba(white, 1) 0 0 0 1px,
-        rgba(black, 0.66) 0 30px 60px 0,
-        inset #333 0 0 0 5px,
+      transition: 0.6s $hoverEasing, box-shadow 2s $hoverEasing;
+      box-shadow: rgba(white, 0.2) 0 0 40px 5px, rgba(white, 1) 0 0 0 1px,
+        rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px,
         inset white 0 0 0 6px;
     }
   }
@@ -85,9 +54,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #333;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow:
-    rgba(black, 0.66) 0 30px 60px 0,
-    inset #333 0 0 0 5px,
+  box-shadow: rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px,
     inset rgba(white, 0.5) 0 0 0 6px;
   transition: 1s $returnEasing;
 }
@@ -95,16 +62,15 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 .card-bg {
   opacity: 0.5;
   position: absolute;
-  top: -20px; left: -20px;
+  top: -20px;
+  left: -20px;
   width: 100%;
   height: 100%;
   padding: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  transition:
-    1s $returnEasing,
-    opacity 5s 1s $returnEasing;
+  transition: 1s $returnEasing, opacity 5s 1s $returnEasing;
   pointer-events: none;
 }
 
@@ -115,26 +81,31 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   color: #fff;
   transform: translateY(40%);
   transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-  
+
   p {
     opacity: 0;
     text-shadow: rgba(black, 1) 0 2px 3px;
     transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  
+
   * {
     position: relative;
     z-index: 1;
   }
-  
+
   &:after {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     z-index: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.6) 100%);
+    background-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(#000, 0.6) 100%
+    );
     background-blend-mode: overlay;
     opacity: 0;
     transform: translateY(100%);
@@ -147,4 +118,88 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   font-size: 36px;
   font-weight: 700;
   text-shadow: rgba(black, 0.5) 0 10px 10px;
+}
+
+.card__flip {
+  // background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: -0.1rem 1.10rem 6.6rem -3.2rem rgba(0, 0, 0, 0.5);
+  height: 10rem;
+  position: relative;
+  transition: all 1s ease;
+  width: 20rem;
+  cursor: pointer;
+  &--image {
+    max-width: 100%;
+  }
+  &:hover {
+    box-shadow: -0.1rem 1.10rem 6.6rem -3.2rem rgba(0, 0, 0, 0.75);
+    width: 30rem;
+    .card__flip--flip-container {
+      transform: rotateY(-180deg);
+    }
+    .card__flip--inside {
+      box-shadow: inset 1rem 0px 5rem -2.5rem rgba(0, 0, 0, 0.1);
+    }
+  }
+  &--title{
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 22px;
+    color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+}
+  &--section {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  &--flip {
+    height: 10rem;
+    perspective: 100rem;
+    position: absolute;
+    right: 0;
+    transition: all 1s ease;
+    visibility: hidden;
+    width: 20rem;
+    z-index: 100;
+    & > * {
+      visibility: visible;
+    }
+    &-container {
+      height: 100%;
+      position: absolute;
+      right: 0;
+      transform-origin: left;
+      transform-style: preserve-3d;
+      transition: all 1s ease;
+      width: 100%;
+    }
+  }
+  &--front,
+  &--back {
+    backface-visibility: hidden;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  &--front {
+    background-color: #fafbfa;
+    height: 10rem;
+    width: 20rem;
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box;
+  }
+  &--back {
+    background-color: #fafbfa;
+    transform: rotateY(180deg) translateX(75%);
+  }
 }
