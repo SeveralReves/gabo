@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+// src/App.js
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero'
+import Cards3d from './components/Cards3d'
+import './App.scss'
 function App() {
+  // const [tasks, setTasks] = useState(['Task 1', 'Task 2', 'Task 3']);
+  // const [newTask, setNewTask] = useState('');
+
+  // const addTask = () => {
+    // if (newTask.trim() !== '') {
+    //   setTasks([...tasks, newTask]);
+    //   setNewTask('');
+    // }
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main'>
+      <Header></Header>
+      <Hero></Hero>
+      <Cards3d></Cards3d>
     </div>
   );
 }
